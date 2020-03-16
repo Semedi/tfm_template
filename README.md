@@ -2,5 +2,5 @@
 compile:
 
 ```
-$ pdflatex principal.tex
+$ make
 ```
