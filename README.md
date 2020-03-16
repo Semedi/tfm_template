@@ -1,0 +1,6 @@
+
+compile:
+
+```
+$ xelatex principal.tex
+```
