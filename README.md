@@ -2,5 +2,5 @@
 compile:
 
 ```
-$ xelatex principal.tex
+$ pdflatex principal.tex
 ```
