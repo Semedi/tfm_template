@@ -20,77 +20,6 @@
 %\label{ch:Introducción}
 \label{makereference}
 
-In this chapter, there will be examples of various features you
-may want to incorporate into your document. Here's an example of a
-figure inserted into the text:
-
-\begin{figure}[htb]%t=top, b=bottom, h=here
-
-    \includegraphics[height=2.5in]{figures/graph.png}
-
-    \caption[Optional: Short caption to appear in List of
-    Figures]{Full caption to appear below the Figure}
-
-    \label{figure1}
-\end{figure}
-
-% +--------------------------------------------------------------------+
-% |To create cross-references to figures, tables and segments
-% |of text, LaTeX provides the following commands:
-% |   \label{marker}
-% |   \ref{marker}
-% |   \pageref{marker}
-% | where {marker} is a unique identifier.
-% |
-% | In the line above, we use \label{figure1} to mark a location
-% | we wish to refer to later.  LATEX replaces \ref by the number of
-% | the chapter, section, subsection, figure, or table after which the
-% | corresponding \label command was issued. \pageref prints the page
-% | number of the page where the \label command occurred.
-% |
-% +--------------------------------------------------------------------+
-
-Here is an example of a Table:
-
-\begin{table}
-
-% +--------------------------------------------------------------------+
-% | We include the command \begin{center} to center the table
-% | horizontally on the page.  Note use of the command \end{center}
-% | to turn off centering after the table is defined.
-% +--------------------------------------------------------------------+
-    \begin{center}
-
-% +--------------------------------------------------------------------+
-% | The table is created with this command
-% |
-% | \begin{tabular}[pos]{table spec}
-% |
-% | The "pos" argument specifies the vertical position of the table relative to
-% | the baseline of the surrounding text.  Use t, b, or c to specify alignment
-% | at the top, bottom, or center.
-% |
-% | The "table spec" command defines the format of the table
-% |   l for a column of left-aligned text
-% |   r for a column of right-aligned text
-% |   c for centered text
-% |   p{width} for a column containing justified text with line breaks
-% |   | for a vertical line
-% +--------------------------------------------------------------------+
-
-    \begin{tabular}[c]{|c|c|c|}
-        \hline
-        Column 1 Heading & Column 2 Heading & Column 3 Heading \\
-        \hline
-        Col 1 Row 1 & Col 2 Row 1 & Col 3 Row 1\\
-        Col 1 Row 2 & Col 2 Row 2 & Col 3 Row 2\\
-        Col 1 Row 3 & Col 2 Row 3 & Col 3 Row 3\\
-        \hline
-    \end{tabular}
-    \caption{Caption to appear below the table}
-    \label{table1}
-   \end{center}
-\end{table}
 
 % +--------------------------------------------------------------------+
 % | Replace \section headings below with the title of your
@@ -98,12 +27,27 @@ Here is an example of a Table:
 % | 1.2, 1.3, etc.
 % +--------------------------------------------------------------------+
 
-\section{Motivación}
+\section{Motivation}
 \label{makereference1.1}
 
-In this paragraph, we want to refer to Fig.~\ref{figure1}
-mentioned at the beginning of this chapter.  We also refer to the
-Table~\ref{table1}.
+Cloud is a major word speaking about data compute in the last decade, we use cloud computing for processing every chunk of information from any source. 
+If we move to Internet of Things field it is impossible not to put cloud computing in the same topic, cloud services are designed to provide easy, scalable access to applications, resources and services, and are fully managed by a cloud services provider.~\cite{cloud_def}  
+
+Internet of things devices provide large amount of data, and we need cloud to process such kind of data, the Cloud of Things (CoT) term comes into play having devices connected directly to the cloud for perform complex operations with the generated information.
+However cloud computing now faces several challenges to meet the more stringent performance requirements of many applications services, specially in terms of latency and bandwith.~\cite{IEE:Morabito:2017}
+
+To solve those problems, Edge computing is a new paradigm that aims to bring data storage and computation closer to a selected location in order to improve response times and save data bandwitch, this consist increasing the resources available on the edge adopting platform that provide intermediate layers.
+
+Thinking about these layers located at the edge make impossible the idea of having the same datacenters that are used for Cloud computing, this implies limited computational capabilities so one of the main problems to solve is to get similar cloud platforms into an Edge environment with certain compute power for processing data. 
+
+To achieve those goals we can leverage on the next concepts:
+
+\begin{itemize}
+  \item One entry in the list
+  \item Another entry in the list
+\end{itemize}
+
+
 
 \section{Objetivos}
 \label{makereference1.2}
