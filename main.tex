@@ -50,7 +50,7 @@
 % | the filename of the style you want to use.
 % +--------------------------------------------------------------------+
 
-\bibliographystyle{styles/plain}
+\bibliographystyle{unsrt}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -112,6 +112,8 @@
 
 \usepackage[pdftex, plainpages=false, pdfpagelabels]{hyperref}
 
+
+
 \hypersetup{
     linktocpage=true,
     colorlinks=true,
@@ -135,10 +137,10 @@
 \textwidth      =  6.46in
 \oddsidemargin  =  0.02in
 
+\setlength{\parskip}{1em}
 % +--------------------------------------------------------------------+
 % | The document finally begins here.                                  |
 % +--------------------------------------------------------------------+
-
 \begin{document}
 
 
@@ -177,32 +179,12 @@
 
 %\thispagestyle{empty} Looks like it's ok to remove this line
 \newpage
-\pagenumbering{arabic}
+\pagenumbering{roman}
 \setcounter{page}{1}
-
-% +--------------------------------------------------------------------+
-% | On the line below, set the number to represent the page number of
-% | the Table of Contents page.  For example, if the Table of Contents
-% | page is the 8th page of your document, enter 8 in the brackets.  This
-% | number may vary, depending on the length of your abstract.
-% |
-% | Numbers do not appear on the title and abstract pages, but they are
-% | included in the page count.  The Table of Contents page is the
-% | first page on which page numbers are displayed.
-% +--------------------------------------------------------------------+
-
-\setcounter{page}{1}
-
-% +--------------------------------------------------------------------+
-% | Here, we will generate our Table of Contents (TOC) entries.        |
-% | This adds the section to the TOC and then generates the indicated  |
-% | section.                                                           |
-% +--------------------------------------------------------------------+
-
 \phantomsection
-\addcontentsline{toc}{chapter}{Índice}
-
+\addcontentsline{toc}{chapter}{Index}
 \tableofcontents
+
 %\listoffigures
 %\listoftables
 
@@ -216,9 +198,9 @@
 % | or delete the following 3 lines.
 % +--------------------------------------------------------------------+
 
-\input{agradecimientos.tex}
-\phantomsection
-\addcontentsline{toc}{chapter}{Agradecimientos}
+%\input{agradecimientos.tex}
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Agradecimientos}
 
 % +--------------------------------------------------------------------+
 % | Dedication Page
@@ -227,9 +209,9 @@
 % | or delete the following 3 lines.
 % +--------------------------------------------------------------------+
 
-\input{dedicatoria.tex}
-\phantomsection
-\addcontentsline{toc}{chapter}{Dedicatoria}
+%\input{dedicatoria.tex}
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Dedicatoria}
 
 % +--------------------------------------------------------------------+
 % | Preface Page
@@ -248,6 +230,8 @@
 % +--------------------------------------------------------------------+
 
 \newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 % +--------------------------------------------------------------------+
 % | Here is where we include individual sections of the thesis or
@@ -259,12 +243,6 @@
 % +--------------------------------------------------------------------+
 
 \input{chapter1.tex}
-
-% +--------------------------------------------------------------------+
-% | Uncomment the lines below to add additional chapters.  Name the
-% | files chapter2.tex for Chapter 2, chapter3.tex for Chapter 3, etc.
-% +--------------------------------------------------------------------+
-
 \input{chapter2.tex}
 \input{chapter3.tex}
 \input{chapter4.tex}
