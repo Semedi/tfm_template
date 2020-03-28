@@ -105,6 +105,7 @@
 \bibpunct{}{}{,}{s}{}{}
 \usepackage{hypernat}
 
+
 % +--------------------------------------------------------------------+
 % | Lastly, the hyperref package allows one to hyperlink cross-        |
 % | references and figures in a LaTeX document.                        |
@@ -112,6 +113,12 @@
 
 \usepackage[pdftex, plainpages=false, pdfpagelabels]{hyperref}
 
+%tables
+\usepackage{float}
+\restylefloat{table}
+
+\usepackage{enumitem}
+\setlist[enumerate]{label*=\arabic*.}
 
 
 \hypersetup{

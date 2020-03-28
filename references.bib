@@ -1,24 +1,11 @@
-%% This BibTeX bibliography file was created using BibDesk.
-%% http://bibdesk.sourceforge.net/
-
-
-%% Created for Nacho at 2011-04-01 11:38:44 +0200 
-
-
-%% Saved with string encoding Unicode (UTF-8) 
-
-
 @string{arpc = {Annu. Rev. Phys. Chem.}}
-
 @string{jcp = {J.~Chem. Phys.}}
-
 @string{josab = {J.~Opt. Soc. Am.~B}}
-
 @string{prl = {Phys. Rev. Lett.}}
-
 @string{rmp = {Rev. Mod. Phys.}}
 
 @string{ieee = {IEEE Access}}
+@string{ieec = {IEEE Computer}}
 @string{arxiv = {arXiv Computer Science}}
 @string{ficloud = {Proceedings - 2014 International Conference on Future Internet of Things and Cloud, FiCloud 2014}}
 @string{corr = {Computing Research Repository}}
@@ -86,7 +73,7 @@
 	
 @article{ACM:clixue:2018,
 	Author = {C.Li, Y.Xue, J.Wang, W.Zhang, T.Li},
-	Journal = ACM
+	Journal = ACM,
 	Pages = {1-34},
 	Title = {Edge-Oriented Computing Paradigms},
 	Volume = {51},
@@ -98,11 +85,106 @@
   note = {Accessed: 2020-24-03}
 }
 
-@misc{Note:Params2:2005,
-	Note = {For Fig.~\ref{fig:chap02:Mathematica:DvsDetuning}, the following parameters were          used:  $I_{p} = 20$~W/cm$^{2}$, $I_{s}$ was set such that the Rabi frequencies, $\Omega_{p}$ and          $\Omega_{s}$ were equal, $w_{p} = w_{s} = 50$~ns and $\tau = -80$~ns.  Both $\Delta_{1}$ and          $\Delta_{2}$ (one- and two-photon resonance, respectively) were allowed to vary.}}
+@misc{openstack,
+  title = {{Openstack official page}},
+  howpublished = {\url{https://www.openstack.org/software}},
+  note = {Accessed: 2020-24-03}
+}
+
+@misc{cloudlet_def,
+  title = {{Wikipedia Cloudlet}},
+  howpublished = {\url{https://en.wikipedia.org/wiki/Cloudlet}},
+  note = {Accessed: 2020-24-03}
+}
+
+@article{Cloudlet:2015,
+	Author = {Kiryong Ha and Mahadev Satyanarayanan},
+	Pages = {1-24},
+	Title = {OpenStack++ for Cloudlet Deployment},
+	Year = {2015}}
 	
-@phdthesis{DMatrix:Nguyen:2003,
-	Author = {H.~Nguyen},
-	School = {Kansas State University},
-	Title = {MOTRIMS},
-	Year = {2003}}
+@article{IEC:Opennebula:2017,
+	Author = {Rubén S. Montero, Elisa Rojas, Alfonso A. Carrillo, Ignacio M. LLorente},
+	Journal = IEEC,
+	Pages = {91-95},
+	Issue = {04},
+	Title = {Extending the Cloud to the Network Edge},
+	Volume = {50},
+	Year = {2017}}
+	
+@misc{aws_outpost,
+  title = {{AWS Outpost}},
+  howpublished = {\url{https://aws.amazon.com/es/outposts/}},
+  note = {Accessed: 2020-24-03}
+}
+
+@misc{vtx,
+  title = {{Intel Vt-x Concept}},
+  howpublished = {\url{https://www.hardwaresecrets.com/everything-you-need-to-know-about-the-intel-virtualization-technology/}},
+  note = {Accessed: 2020-25-03}
+}
+
+@misc{kvm,
+  title = {{KVM kernel module}},
+  howpublished = {\url{https://www.linux-kvm.org/page/Main_Page}},
+  note = {Accessed: 2020-25-03}
+}
+
+@misc{virtualization,
+  title = {{Live migrating QEMU-KVM}},
+  howpublished = {\url{https://developers.redhat.com/blog/2015/03/24/live-migrating-qemu-kvm-virtual-machines/}},
+  note = {Accessed: 2020-25-03}
+}
+
+@misc{libvirt,
+  title = {{Libvirt official page}},
+  howpublished = {\url{https://libvirt.org/index.html}},
+  note = {Accessed: 2020-25-03}
+}
+
+@misc{nuc_specs,
+  title = {{Nuc Board Specifications}},
+  howpublished = {\url{https://ark.intel.com/content/www/us/en/ark/products/83254/intel-nuc-kit-nuc5i5ryk.html}},
+  note = {Accessed: 2020-25-03}
+}
+
+@misc{libvirt_networking,
+  title = {{Libvirt virtual networking comparison}},
+  howpublished = {\url{https://wiki.libvirt.org/page/VirtualNetworking}},
+  note = {Accessed: 2020-25-03}
+}
+
+@misc{coral_specs,
+  title = {{Tech Specs for google coral and overview}},
+  howpublished = {\url{https://coral.ai/products/accelerator}},
+  note = {Accessed: 2020-25-03}
+}
+
+@misc{golang,
+  title = {{Golang official page}},
+  howpublished = {\url{https://golang.org/}},
+  note = {Accessed: 2020-25-03}
+}
+
+@misc{libvirt_rpc,
+  title = {{Libvirt RPC infraestructure}},
+  howpublished = {\url{https://libvirt.org/internals/rpc.html#internals}},
+  note = {Accessed: 2020-25-03}
+}
+
+@article{graphqh_paper,
+	Author = {Olaf Hartig and Horge Perez},
+	Title = {An Initial Analysis of Facebook's GraphQL Languaje},
+	Year = {2017}}
+	
+@article{lwm2m_paper,
+	Author = {S.Slovetskiy, P.Magadevan, Y.Zhang, S.Akhouri},
+	Title = {Lightweight M2M 1.1: Managing Non-IP Devices in Cellular IoT Networks},
+	Publisher = {Ericsson and T-mobile},
+	Year = {2018}}
+	
+@article{IEE:lwm2m:2015,
+	Author = {S.Rao, D.Chendanda, C.Deshpande, V.Lakkundi},
+	Title = {Implementing LWM2M in Constrained IoT Devices},
+	Journal = IEEE,
+	Year = {2015}}

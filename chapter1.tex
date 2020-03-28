@@ -31,31 +31,31 @@
 \label{makereference1.1}
 
 Cloud is a major word speaking about data compute in the last decade, we use cloud computing for processing every chunk of information from any source. 
-If we move to Internet of Things field it is impossible not to put cloud computing in the same topic, cloud services are designed to provide easy, scalable access to applications, resources and services, and are fully managed by a cloud services provider.~\cite{cloud_def}  
+If we move to Internet of Things field it is impossible not include cloud computing in the same topic, cloud services are designed to provide easy, scalable access to applications, resources and services, and are fully managed by a cloud services provider.~\cite{cloud_def}  
 
-Internet of things devices provide large amount of data, and we need cloud to process such kind of data, the Cloud of Things (CoT) term comes into play having devices connected directly to the cloud for perform complex operations with the generated data usually with Artificial Intelligence that is the perfect tool for creating smart tasks that would harness the immense amount of information.
-However cloud computing now faces several challenges to meet the more stringent performance requirements of many applications services, specially in terms of latency and bandwith.~\cite{IEE:Morabito:2017}
+Internet of things devices provides large amount of data, and we need cloud to process that kind of data. The Cloud of Things (CoT) term comes into play having devices connected directly to the cloud for perform complex operations with the generated data using with Artificial Intelligence this is the perfect tool for creating smart tasks that would harness the immense amount of information.
+However cloud computing now faces several challenges to meet the most stringent performance requirements of many applications services, specially in terms of latency and bandwith.~\cite{IEE:Morabito:2017}
 
-To solve those problems, Edge computing is a new paradigm that aims to bring data storage and computation closer to a selected location in order to improve response times and save data bandwitch, this consist on increasing the resources available on the edge adopting a platform that provide intermediate layers.
-Thinking about these layers located at the edge make impossible the idea of having the same kind of datacenter that are being used for Cloud computing, this layer implies limited computational capabilities so one of the main problems to solve is to get similar cloud platforms into an Edge environment with certain compute power for processing data.
+To solve those problems, Edge computing is a new paradigm that aims to bring data storage and computation closer to a selected location in order to improve response times and save data bandwidth, this consists on increasing the resources available on the edge, adopting a platform that provide intermediate layers.
+Thinking about these layers located at the edge, make impossible the idea of having the same kind of datacenter that are being used for Cloud computing. This layer implies limited computational capabilities so one of the main problems to be solved is to get similar cloud platforms into an Edge environment with certain compute power for processing data.
 
 \newpage
-To solve this "compute power" problem the following resources are presented:
+In order to solve the Compute power's problem, the following resources are being used:
 \begin{itemize}
   \item \textbf{Single Board computers or Minicomputers} that achieve high computing capacities reducing costs and size significantly.
-  \item \textbf{Usb accelerators} devices that provides an Edge TPU as a coprocessor for your computer. It accelerates inferencing for artificial intelligence models.
+  \item \textbf{Usb accelerators} devices that provides an Edge TPU as a coprocessor for your computer. It accelerates the inference process for artificial intelligence models.
 \end{itemize}
 
 Hardware part is covered, however there are too many things involving the current paradigm of cloud and edge computing that are essentials in order to build a proper architecture:
 
-\textbf{Virtualization} is the capability of creating virtual machines that act like real ones, the creation of a virtual version of a device, this technology became mandatory in cloud and edge computing since the creation of automatic elastic services require to get rid of haphazard IT rooms, cables, and bulky hardware; reducing your overall IT overhead as well as management costs.~\cite{virt_def}.
+\textbf{Virtualization} is the capability of creating virtual machines that act like real ones, the creation of a virtual version device, this technology becomes mandatory in cloud and edge computing since the creation of automatic elastic services requires to get rid of haphazard IT rooms, cables, and bulky hardware; reducing your overall IT overhead as well as management costs.~\cite{virt_def}.
 
 Creation and management of these Virtual machines would be impossible without the existence of \textbf{hypervisors}, software which is responsible of controlling the virtual machine and provide a connection for the virtual resource and the real one.
 
 \textbf{Virtual appliances} are Virtual Machine images, usually with a specific configuration, designed to run on a virtual platform. They are designed to reduce or eliminate the installation, configuration, and maintenance costs associated with running suites of software.~\cite{GEN:Virtualization:2010}
 
-When anything would be able to connect to the Internet and generate data, there is a possibility that at some stage it is no longer necessary to upload the data to the cloud or sync device. Momentarily, the data may not be required. In that scenario, either the device must be stopped from generating data or gateway device must decide when it is required to stop uploading the data and not to consume resources of the network and cloud, for that while.~\cite{Ficloud:AazaamHuh:2014}
-Having this in mind and knowing that in a near future there are going to be millions devices called things connected, the \textbf{IoT gateway} appears to serve as a bridge for connecting these things, send data to the cloud or participate with an edge approach, a way to implement this edge gateway might be build a virtual appliance that is situated close to the things. Figure ~\ref{figure1.1} show a representation of the concept.
+When anything is able to connect to the Internet and generate data, there will be a possibility that at some stage uploading data to the cloud or sync device won't be necessary any longer. Temporarily, the data might not be required. In that scenario, either the device must be stopped from generating data or gateway device must decide when the data upload should be discontinued to avoid using network and cloud resources for a while.~\cite{Ficloud:AazaamHuh:2014}
+Having this in mind and knowing that in a near future there are going to be millions devices called things connected, the \textbf{IoT gateway} appears to serve as a bridge for connecting these things, send data to the cloud or participate with an edge approach. A way to implement this edge gateway might be building a virtual appliance that will be situated close to the things. Figure ~\ref{figure1.1} show a representation of the concept.
 
 
 \newpage
@@ -66,7 +66,7 @@ Having this in mind and knowing that in a near future there are going to be mill
 \label{figure1.1}
 \end{figure}
 
-Some of the features that could supply the IoT gateway are the next:
+Some of the features that could supply the IoT gateway are the following:
 
 \begin{itemize}
   \item communication bridge
@@ -76,14 +76,14 @@ Some of the features that could supply the IoT gateway are the next:
   \item route data
 \end{itemize}
 
-The presence of this edge layer facilitate the implementation of collaborative computing among devices and it helps to apply data management policies, even so this edge layer is not usually resource enriched, following the cloud oriented approach of hypervisor-based virtualization can prove to be cumbersome on these devices.~\cite{arxiv:doluikiraly:2018}
-However we'll see that this kind of approach could be very helpful using the proper hypervisor for gaining the maximum efficiency.
+The presence of this edge layer facilitates the implementation of collaborative computing among devices and it helps to apply data management policies, even so this edge layer is not usually resource enriched. Following the cloud oriented approach of hypervisor-based virtualization can be proven to be cumbersome on these devices.~\cite{arxiv:doluikiraly:2018}
+However we'll see that this kind of approach could be very helpful using the proper hypervisor in order to gain the maximum efficiency.
 
 \newpage
 \section{Objectives}
 \label{makereference1.2}
 
-This project has the main goal of prove that an IoT gateway using hypervisor-based virtualization reports improvements over an IoT edge environment providing virtual machines capable of use real USB accelerators connected through a low spec motherboard.
+The main goal of the project is to prove that an IoT gateway using hypervisor-based virtualization reports improvements over an IoT edge environment is able to provide virtual machines capable of using real USB accelerators connected through a low spec motherboard.
 
 Therefore with the purpose of show some results, a virtual appliance has been created running a custom service developed entirely from scratch using new technologies, these areas are highlighted in greater detail in the next chapters. 
 
@@ -97,17 +97,17 @@ With our appliance working, the next milestones are going to be evaluated:
 
 \subsection{Use case}
 \label{makereference1.2.1}
-Under the principles previously established it has been defined a use case that allow the appliance development to have a concise scenario in order to achieve better results. The project is aimed at apartments block, takes into account a modern building in which every house can be considered smart home, having a large quantity of sensors across the property.
+Under the principles previously established it has been defined a use case that allows the appliance development to have a concise scenario in order to achieve better results. The project is aimed at apartments blocks, takes into account a modern building in which every house can be considered an smart house, having a large quantity of sensors across the area.
 
-An external provider or a neighbourhood community want to take advantage of EpFiot we'll refer to that 'provider' as client:
+An external provider or a neighbourhood community wants to take advantage of EpFiot. That provider will be referred as client:
 \begin{itemize}
-  \item A low cost board is deployed in base building of flats/apartments as an IoT Gateway with Epfiot appliance installed.
-  \item Client provide each apartment with sensors (temperature, humidity, camera, gas...).
-  \item Epfiot appliance has many GPU accelerators physically connected through usb ports.
-  \item Epfiot appliance provide a service to the client allowing the spawn of customized vms that have direct access to the gpu accelerators.
-  \item Client can configure sensors using epfiot.
-  \item Client have full access and management for the vms and is able to allocate some resources including the usb accelerators.
-  \item Sensors generate data, instead of send this data directly to internet, a proper vm could receive the data and use a accelerator for perform inference.
+  \item A low cost board will be deployed in base building of flats/apartments as an IoT Gateway with Epfiot appliance installed.
+  \item Client will provide each apartment with sensors (temperature, humidity, camera, gas...).
+  \item Epfiot appliance will have GPU accelerators physically connected through usb ports.
+  \item Epfiot appliance will provide a service to the client allowing the spawn of customized vms that have direct access to the gpu accelerators.
+  \item Client will be able to configure sensors using epfiot.
+  \item Client will have full access and management for the vms and he will be able to allocate some resources including the usb accelerators.
+  \item Sensors will generate data, instead of sending this data directly to internet, a proper vm could receive the data and use a accelerator for perform inference.
   \item Results could be stored in epfiot or another application in a low latency context.
 \end{itemize}
 
@@ -124,16 +124,16 @@ Figure ~\ref{figure1.2} shows a representation of the case listed above.
 \section{Document Organization}
 \label{makereference1.3}
 
-The work is formed by seven chapters, we shall now proceed to enumerate these chapters:
+This document contains 7 chapters described as follow:
 
 \begin{itemize}
-  \item \textbf{Chapter 1, Introduction:} This chapter introduces a set of conceptual definition that are going to be mentioned along the document, also this chapter shows the purpose of the whole project explaining motivations and goals.
-  \item \textbf{Chapter 2, State of the Arts:} This section shows the current state of Edge computing from a infrastructure point of view, discussing the underlying technologies discussing advantages and disadvantages of each option, finally a brief overview of related projects are shown.    
-  \item \textbf{Chapter 3, Development Environment:} A list of the main technologies used for Epfiot will be enumerated, underlining what kind of utility provide to the project. Hardware and requirements are also discussed in this chapter.
-  \item \textbf{Chapter 4: Architecture}: The chapter describe the overall architecture of Epfiot, reviewing every component and how they are connected between each other. 
-  \item \textbf{Chapter 5: Features:} This part explains with detail the features of the project, end-user's functionalities are listed.   
+  \item \textbf{Chapter 1, Introduction:} This chapter introduces a set of conceptual definition that is going to be mentioned along the document. This chapter also displays the complete project 's purpose through the explanation of its motivations and goals.
+  \item \textbf{Chapter 2, State of the Arts:} This section displays the current state of Edge computing from a infrastructure point of view, discussing the underlyng technologies together with the advantages and disadvantages of each option. Finishing by a brief overview of related projects.
+  \item \textbf{Chapter 3, Development Environment:} A list of the main technologies used for Epfiot will be enumerated, underlining what kind of utility is used for the project. Hardware and requirements are also discussed in this chapter.
+  \item \textbf{Chapter 4: Architecture}: The chapter describes the overall architecture of Epfiot, reviewing every component and how they are connected between each other. 
+  \item \textbf{Chapter 5: Features:} This part explains in detail the features of the project, end-user's functionalities are listed.   
   \item \textbf{Chapter 6: Results:} This section is about showing the final results that are obtained with the Epfiot application running. 
-  \item \textbf{Chapter 7: Conclusions and Future Work:} Finally a brief summary of the work commenting what kind of implications and how to improve the current status of the project in a near future. 
+  \item \textbf{Chapter 7: Conclusions and Future Work:} Finally a brief summary of the project commenting what kind of implications it has and how to improve the current status of the project in a near future. 
 \end{itemize}
 
 %Here's an example of a citation to a single
