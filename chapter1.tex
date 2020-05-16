@@ -30,39 +30,45 @@
 \section{Motivation}
 \label{makereference1.1}
 
-Cloud is a major word speaking about data compute in the last decade, we use cloud computing for processing every chunk of information from any source. 
-If we move to Internet of Things field it is impossible not include cloud computing in the same topic, cloud services are designed to provide easy, scalable access to applications, resources and services, and are fully managed by a cloud services provider.~\cite{cloud_def}  
+{\em Cloud computing} has been a major word speaking about data compute in the last decade; as of today, cloud computing is used to store, clean, process and analyze virtually every chunk of information gathered from any source.
+%
+With the emergence of Internet of Things (IoT), cloud computing is still a hot topic and an integral part in the deployment of complete infrastructures, prividing easy and scalable access to applications, resources and services, and being fully managed by  cloud service providers~\cite{cloud_def}.
 
-Internet of things devices provides large amount of data, and we need cloud to process that kind of data. The Cloud of Things (CoT) term comes into play having devices connected directly to the cloud for perform complex operations with the generated data using with Artificial Intelligence this is the perfect tool for creating smart tasks that would harness the immense amount of information.
-However cloud computing now faces several challenges to meet the most stringent performance requirements of many applications services, specially in terms of latency and bandwith.~\cite{IEE:Morabito:2017}
+IoT devices provide large amount of data, and hence cloud processing is a natural solution to deal with them. 
+%
+The {\em Cloud of Things} (CoT) term comes here into play,  deploying connected defices directly to the cloud to perform complex operations with the generated data using with Artificial Intelligence. This is the perfect tool for creating smart tasks that harness the immense amount of information.
+%
+However, Cloud Computing faces several challenges to meet the most stringent performance requirements of many application services, specially in terms of latency and bandwidth~\cite{IEE:Morabito:2017}.
 
-To solve those problems, Edge computing is a new paradigm that aims to bring data storage and computation closer to a selected location in order to improve response times and save data bandwidth, this consists on increasing the resources available on the edge, adopting a platform that provide intermediate layers.
-Thinking about these layers located at the edge, make impossible the idea of having the same kind of datacenter that are being used for Cloud computing. This layer implies limited computational capabilities so one of the main problems to be solved is to get similar cloud platforms into an Edge environment with certain compute power for processing data.
+To address and solve those problems, Edge Computing is a new paradigm that aims at bringing data storage and computation closer to the data source in order to improve response times and save data bandwidth. Edge Computing consists on increasing the resources available on the network edge, adopting a platform that provides intermediate layers for storing, cleaning, analyzing and inferencing.
+%
+Regarding the layers located at the edge, it is obviously impossible to provide the same kind of datacenter capabilities that are currently available in Cloud Computing premises. Edge Computing implies limited computational capabilities, so one of the main problems to be solved is to get similar cloud platforms (at least in terms of capabilities, flexibility and deployment mechanisms) into an edge environment with certain compute power for processing data.
 
-\newpage
-In order to solve the Compute power's problem, the following resources are being used:
+Specifically, an edge computing infrastructure is based on a set of local hardware resources, that we have also adopted in this work. Specifically, we base our development on a fairly common hardware infrastructure composed of two main elements, namely:
+
 \begin{itemize}
-  \item \textbf{Single Board computers or Minicomputers} that achieve high computing capacities reducing costs and size significantly.
-  \item \textbf{Usb accelerators} devices that provides an Edge TPU as a coprocessor for your computer. It accelerates the inference process for artificial intelligence models.
+  \item \textbf{A Single Board Computer (SBC) or a minicomputer/barebone} that exhibit relatively high computing capacities with a proper reducing cost, energy consumption and form factor to adapt it to the specific scenario in which they are usually deployed.
+  \item \textbf{Specific-purpose USB accelerators (DSAs)}, that provide co-processing capabilities to the central aforementioned computer (e.g. an Edge TPU as a Machine-Learning coprocessor). It accelerates specific tasks (e.g. inference processes for artificial intelligence models in the case of the Edge TPU), and can be selected depending on the typical application types that will be deployed on the edge infrastructure.
 \end{itemize}
 
-Hardware part is covered, however there are too many things involving the current paradigm of cloud and edge computing that are essentials in order to build a proper architecture:
+While the hardware problem is covered with the aforementioned elements, 
+there are other elements involving the current paradigm of Cloud and Edge computing that are critical in order to develop an efficient and flexible edge architecture. 
 
-\textbf{Virtualization} is the capability of creating virtual machines that act like real ones, the creation of a virtual version device, this technology becomes mandatory in cloud and edge computing since the creation of automatic elastic services requires to get rid of haphazard IT rooms, cables, and bulky hardware; reducing your overall IT overhead as well as management costs.~\cite{virt_def}.
+\textbf{Virtualization} is the capability of creating virtual machines that act like real ones. This technology becomes mandatory in Cloud and Cdge Computing, since the creation of automatic elastic services requires getting rid of haphazard IT rooms, cables, and bulky hardware, reducing the overall IT overhead as well as management costs~\cite{virt_def}.
 
-Creation and management of these Virtual machines would be impossible without the existence of \textbf{hypervisors}, software which is responsible of controlling the virtual machine and provide a connection for the virtual resource and the real one.
+The creation and management of these virtual machines (VMs) would be impossible without the existence of \textbf{hypervisors}, pieces of software in charge of controlling the VM and providing a connection for the virtual resource and the real one.
 
-\textbf{Virtual appliances} are Virtual Machine images, usually with a specific configuration, designed to run on a virtual platform. They are designed to reduce or eliminate the installation, configuration, and maintenance costs associated with running suites of software.~\cite{GEN:Virtualization:2010}
+\textbf{Virtual appliances} are VM images, usually with a specific configuration, designed to run on a virtual platform. They are designed to reduce or eliminate the installation, configuration, and maintenance costs associated with running suites of software~\cite{GEN:Virtualization:2010}.
 
 When anything is able to connect to the Internet and generate data, there will be a possibility that at some stage uploading data to the cloud or sync device won't be necessary any longer. Temporarily, the data might not be required. In that scenario, either the device must be stopped from generating data or gateway device must decide when the data upload should be discontinued to avoid using network and cloud resources for a while.~\cite{Ficloud:AazaamHuh:2014}
-Having this in mind and knowing that in a near future there are going to be millions devices called things connected, the \textbf{IoT gateway} appears to serve as a bridge for connecting these things, send data to the cloud or participate with an edge approach. A way to implement this edge gateway might be building a virtual appliance that will be situated close to the things. Figure ~\ref{figure1.1} show a representation of the concept.
+Having this in mind and knowing that in a near future there are going to be millions devices called things connected, the \textbf{IoT gateway} appears to serve as a bridge for connecting these things, send data to the cloud or participate with an edge approach. A way to implement this edge gateway might be building a virtual appliance that will be situated close to the things. Figure ~\ref{figure1.1} shows a representation of the concept.
 
 
 \newpage
 \begin{figure}[h]%t=top, b=bottom, h=here
 % \centering
     \includegraphics[width=6.5in]{figures/iot_gateway.png}
-~\caption{IoT Gateway scheme}
+~\caption{Typical Gateway-based IoT deployment scheme.}
 \label{figure1.1}
 \end{figure}
 
@@ -76,8 +82,8 @@ Some of the features that could supply the IoT gateway are the following:
   \item route data
 \end{itemize}
 
-The presence of this edge layer facilitates the implementation of collaborative computing among devices and it helps to apply data management policies, even so this edge layer is not usually resource enriched. Following the cloud oriented approach of hypervisor-based virtualization can be proven to be cumbersome on these devices.~\cite{arxiv:doluikiraly:2018}
-However we'll see that this kind of approach could be very helpful using the proper hypervisor in order to gain the maximum efficiency.
+The presence of this Edge Layer facilitates the implementation of collaborative computing across devices, and it helps to apply data management policies. However, this edge layer is not usually rich in computing resources (mainly due to energy consumption limitations), which dramatically limits the approaches and designs that could be implemented to port move computing tasks to the edge. Following the Cloud-oriented approach of hypervisor-based virtualization, it can be proven that it can be cumbersome on these devices~\cite{arxiv:doluikiraly:2018}.
+However we will see that this type of approach can be of great help using the proper hypervisor in order to gain the maximum efficiency.
 
 \newpage
 \section{Objectives}

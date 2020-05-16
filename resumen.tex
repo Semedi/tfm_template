@@ -13,11 +13,13 @@
   \end{center}
 \vspace{1cm}
 
-En este presente trabajo se realiza la implementación de EPFIOT (Edge Provisioning For Internet of Things). Una \textit{appliance} desarrollada para contemplar casos de Infraestructura como servicio en el \textit{edge computing} y específicamente preparada para interactuar con dispositivos IoT usando aceleradores hardware para IA.
+El presente trabajo describe la implementación de {\sc Epfiot} ({\em Edge Provisioning For Internet of Things}), una \textit{appliance} desarrollada para contemplar casos de Infraestructura como Servicio (IaaS, {\em Infrastructure as a service}) en el marco de \textit{edge computing}, y específicamente diseñada y preparada para interactuar con dispositivos IoT usando aceleradores {\em hardware} de propósito específico en el ámbito del aprendizaje automático.
 
-En un mundo gobernado por el \textit{cloud computing}, surgen dudas sobre si de verdad es necesario mandar todos los datos que recogen los dispositivos a internet afrontando la latencia que esto supone, Epfiot es un proyecto que intenta usando pocos recursos ofrecerte esa nube de infraestructura para procesar los datos de tus dispositivos en tu propia red local, facilitándote maquinas en el borde con aceleradores IA para que tus dispositivos realicen inferencia sobre los datos rápidamente.
+En un mundo gobernado por el paraditma \textit{cloud computing}, surgen dudas sobre si es estrictamente necesario llevar a cabo un envío de todos los datos que recogen los dispositivos a Internet, afrontando la latencia que esto supone. 
+%
+{\sc Epfiot} persigue, a cambio de un uso contenido de recursos, ofrecer una  infraestructura completa para llevar a cabo un procesamiento integral de datos obtenidos desde dispositivos en la propia red local, facilitando máquinas en el borde ({\em edge computing} potencialmente equipadas con aceleradores de propósito específico para aprendizaje automático que realizan inferencia sobre los datos de forma rápida, reduciendo la latencia asociada a la transferencia a grandes centros de datos centralizados o distribuidos, pero en cualquier caso remotos.
 
-La aplicación ofrece una interfaz \textit{graphql} que posibilita el desarrollo de un ecosistema IoT de infraestructura en el borde usando la virtualización de Linux (kvm) y otras tecnologías emergentes como puede ser LwM2M facilitando la configuración de los dispositivos.
+La aplicación desarrollada ofrece una interfaz \texttt{GraphQL} que posibilita el desarrollo de un ecosistema IoT de infraestructura en el borde usando la virtualización de Linux ({\tt kvm}) y otras tecnologías emergentes como LwM2M facilitando la configuración de los dispositivos.
 
 \vspace{1cm}
 

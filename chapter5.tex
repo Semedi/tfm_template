@@ -12,18 +12,22 @@
 \chapter{Epfiot API}
 \label{makereference5}
 
-Here are more examples of referring to previous sections.  In
-Chapter~\ref{makereference} there were several sections, including
-section~\ref{makereference1.1}, section~\ref{makereference1.2},
-and section~\ref{makereference1.3}.
+This chapter will explain in detail the operations that Epfiot has already implemented.
 
-Likewise, in Chapter~\ref{makereference2}, there are
-sections~\ref{makereference2.1} and ~\ref{makereference2.2}.
+As seen in Chapter 3, instead of using a classic REST API, Epfiot takes a different approach, using a new technology as it's already described graphql.
 
+It is possible to see Graphql as a kind of new language, that's why it is is important to enumerate the main interface supported as well as the rules that must be followed in order to make requests in a properly manner. The service is created by defining types and fields on those types and providing functions for each field on each type.
 
+we will proceed to define the types and objects of Epfiot Interface to further show the enabled operations on the project. It is useful to note that these 'operations' or function must be separated in two groups:
+\begin{itemize}
+    \item Queries: these are the functions used by the client to request the data it needs from Epfiot. It could be seen as the Read-Only operations.
+    \item Mutations: unlike queries, mutations are a kind of function that allow you to change the model. That means that it is possible to create, update or delete the data.
+\end{itemize}
 
+This text explains the possible ways to interact with Epfiot, however it is highly recommended to visit the Graphql documentation to know in depth details of this technology, 
+\newpage
 
-% +--------------------------------------------------------------------+
+% +--------------------------------------------------------------------+DD
 % | Replace \section headings below with the title of your
 % | subsections.  LaTeX will automatically number the subsections 1.1,
 % | 1.2, 1.3, etc.
@@ -32,19 +36,280 @@ sections~\ref{makereference2.1} and ~\ref{makereference2.2}.
 \section{Types}
 \label{makereference5.1}
 
-In this paragraph, we want to refer to Fig.~\ref{figure1}
-mentioned at the beginning of this chapter.  We also refer to the
-Table~\ref{table1}.
+To make the user interaction easier, Epfiot is based on types, these types are used in two ways:
+\begin{enumerate}
+    \item As a parameter: May be required when calling some operations.
+    \item As a result: It is very useful to know about how these types are constructed because when they are returned from an operation, you are free to consult any desired attribute.
+\end{enumerate}
+
+These types are composed of several attributes. Attributes have their own type, they primitively defined by graphql.
+
+Note that the following types are already native to graphql:
+\begin{itemize}
+    \item ID: This type is used for unique identifiers
+    \item String: This is the UTF8 character sequence. 
+    \item Int: A signed 32-bit integer.
+    \item Boolean: True or False.
+    \item List: A list of values for a specific type.
+\end{itemize}
+
+Once you know the basic types exposed by Graphql, the custom types used in epfiot for performing operations will be shown. Next to each attribute there is a column indicating the permission of the attribute.
+
+\textbf{Read}: if it can be read by the user as a result of some function.
+
+
+\textbf{Write}: if the user has the capability to change it in any way.
+
+ 
+\newpage
+\subsection{User}
+\label{makereference5.1.1}
+
+This type is implemented to represent the user entity in the Epfiot communication process. Major use of this type is for administrators.
+
+\underline{Type User}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}[b]{|l|l|l|l|}
+    \hline
+    Attribute & Type & Permissions & Description \\
+    \hline
+    id & ID & R & The user identificator \\
+    name & String & RW & The username\\
+    vms & [ID] & RW & The list of virtual machines owned by the user\\
+    \hline
+\end{tabular}
+\caption{Epfiot User type table}
+\label{table1}
+\end{center}
+\end{table}
+
+It is not commont to perform any operation with this type, the handling of the users in Epfiot is planned for future releases.
+
+\subsection{Hostdev}
+\label{makereference5.1.2}
+
+This type respresent the physical device managed by Epfiot. Most common way this is used is to represent the usb accelerators attached to the host.
+
+\underline{Type Hostdev}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}[b]{|l|l|l|p{11cm}|}
+    \hline
+    Attribute & Type & Permissions & Description \\
+    \hline
+    id & ID & R & The device identificator \\
+    \hline
+    bus & String & R & The bus number assigned by the Linux kernel\\
+    \hline
+    device & String & R & The device number assigned by the Linux Kernel\\
+    \hline
+    info & String & R & Text chain describing the usb context, normally the manufacturer. Allow us to identify the device\\
+    \hline
+\end{tabular}
+\caption{Epfiot Hostdev type table}
+\label{table1}
+\end{center}
+\end{table}
+
+Keep in mind that Hostdev type is read-only. What does this mean? This type is essentially used to provide some useful information to the user in order to know which devices are available to the host.
+This means that no user should change this information, it depends exclusively on the thevices that are installed on the machine.
+
+
+\subsection{Thing}
+\label{makereference5.1.3}
+In a IoT context, things are devices that are going to collect data from the environment. This type represents those devices.
+
+\underline{Type Things}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}[b]{|l|l|l|p{11cm}|}
+    \hline
+    Attribute & Type & Permissions & Description \\
+    \hline
+    id & ID & R & The thing identificator \\
+    \hline
+    name & String & RW & friendly identificator, used for LWM2M\\
+    \hline
+    info & String & R & Text chain describing the thing\\
+    \hline
+\end{tabular}
+\caption{Epfiot Thing type table}
+\label{table1}
+\end{center}
+\end{table}
+
+\subsection{Vm}
+\label{makereference5.1.4}
+
+This type represents the virtual machine, required for performing some basic operations such as create, update or get. This vm type will be used in order to pass the mandatory information to Epfiot.
+
+\underline{Type Vm}
+\begin{table}[H]
+    \begin{center}
+    \begin{tabular}[b]{|l|l|l|p{11cm}|}
+        \hline
+        Attribute & Type & Permissions & Description \\
+        \hline
+        id & ID & R & The virtual machine identificator, is autogenerated so this parameter is not required when creating a new virtual machine\\
+        \hline
+        owner & User & RW & Denotes the user to whom the virtual machine belongs\\
+        \hline
+        name & String & RW & The name of the machine (server as a friendly identifier)\\
+        \hline
+        base & String & RW & The name of the base image used for the vm creation. Epfiot will clone this image in order to create the machine\\
+        \hline
+        vcpu & Int & RW &  The number of virtual cpus that the machine can run\\
+        \hline
+        memory & Int & RW & Amount of RAM in megabytes\\
+        \hline
+        state & string & R & Current state of the virtual machine\\
+        \hline
+        dev & [Hostdev] & RW & The list of devices (real hardware) attached to the machine\\
+        \hline
+        things & [Thing] & RW & The list of things related to the machine \\
+        \hline
+    \end{tabular}
+    \caption{Epfiot User type Vm}
+    \label{table1}
+   \end{center}
+\end{table}
+
+The Vm type represent real machines that Epfiot has created, Attributes dev and things will show the relationships between vms, usb accelerators and IoT devices.
+
+\subsection{Write Only type parameters}
+
+We have seen the necessary types used by Epfiot API directly related to the model. However, to make the application easier to use for the user, some additional types have been created in order to serve as input values. These types will have write-only permissions in all their attributes and some of them will be mandatory.
+
+\underline{Type ThingInput}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}[b]{|l|l|l|l|}
+    \hline
+    Attribute & Type & Permissions & mandatory \\
+    \hline
+    name & String & W & yes\\
+    \hline
+    info & String & W & yes\\
+    \hline
+\end{tabular}
+\caption{Epfiot ThingInput type table}
+\label{table1}
+\end{center}
+\end{table}
+
+\underline{Type ConfigInput}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}[b]{|l|l|l|l|}
+    \hline
+    Attribute & Type & Permissions & mandatory \\
+    \hline
+    user & String & W & yes\\
+    \hline
+    password & String & W & yes\\
+    \hline
+\end{tabular}
+\caption{Epfiot ConfigInput type table}
+\label{table1}
+\end{center}
+\end{table}
+
+This type has nothing to do wit the ones mentioned above.
+This configuration will be applied when instantiating a Epfiot VM. At the moment there are only two required fields, user and password, which will be automatically created in the underlying operating system in order to allow user control.
+
+In the future it is planned to improve thys type to support more configurations, such as network or installation scripts.
+\newpage
+
+\underline{Type VmInput}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}[b]{|l|l|l|l|}
+    \hline
+    Attribute & Type & Permissions & mandatory \\
+    \hline
+    base & String & W & yes\\
+    \hline
+    name & String & W & yes\\
+    \hline
+    memory & Int & W & no\\
+    \hline
+    vcpu & Int & W & no\\
+    \hline
+    devIDs & [Int] & W & no\\
+    \hline
+    ThingIDs & [Int] & W & no\\
+    \hline
+    config & ConfigInput & W & no\\
+    \hline
+\end{tabular}
+\caption{Epfiot VmInput type table}
+\label{table1}
+\end{center}
+\end{table}
+
+
+It is the same vm type seen earlier in write-only mode. It must be taken into account that to assign devices or things when instantiating a machine, these must exist previously and you must know their identifier. However, it is possible to change these values using \textb{mutations}.
+\newpage
+
 
 \section{Queries}
 \label{makereference5.2}
 
-In this section, we refer back to text mentioned in
-Section~\ref{makereference1.1} on page~\pageref{makereference1.1}.
+Queries are a type of operation used to obtain information. Queries do not let you to change the internal model of Epfiot, that means that resource creation or boot operation are outside the scope of this section.
+Queries will be used when you want to consult any kind of reading information such as active machines or devices associated with them. Keep in mind that thanks to Graphql, you can view any atttibute in an easy and simple way.
 
+We will describe the queries implemented in Epfiot below:
+
+
+\begin{itemize}
+    \item \textbf{getUser(id: ID!): User}\hfill\break
+    This operation gives us a user object by passing it and id. Its use is intended for management purposes, however it is already implemented.
+    \item \textbf{getUsers(): [User]}\hfill\break
+    This operation returns all the users of the system, just like the previous one is intended for the administration of Epfiot.
+    \item \textbf{getVm(id: ID!): Vm}\hfill\break
+    Allow to obtain information about a specific machine already created. Epfiot will only let you to view those that you own.
+    \item \textbf{getDev(id: ID!): Hostdev}\hfill\break
+    Allow to obtain information about a specific host device. Host devices are created in program initialization.
+    \item \textbf{getThing(id: ID!): Thing}\hfill\break
+    Allow to obtaion information about a specific Thing already created. Epfiot will only let you to view those that you own.
+    \item \textbf{getVms(): [Vm]}\hfill\break
+    With this operation you can visualiza all vms you own.
+    \item \textbf{getUsb(): [Hostdev]}\hfill\break
+    In order to know which usb accelerators are plugged into the real host.
+\end{itemize}
+
+\newpage
 \section{Mutations}
 \label{makereference5.3}
+These operations, as opposed to the queries, can change the model. This means taht creation, startup and modification operations are allowed in this context, so use them with care.
 
-Here's an example of a citation to a single
-work.~\citet{CT:Weiner:1999} It's also possible to make multiple
-citations.~\citet{CT:Phillips:1985, ARP:Loy:1974}
+\begin{itemize}
+    \item \textbf{createVm(vm: VmInput!): Vm}\hfill\break
+    To create a virtual machine you have to call this operation.
+    \item \textbf{updateVm(vm: VmInput!): Vm}\hfill\break
+    With this operation you can change some aspects of your virtual machine, such as vcpu, memory or even add devices.
+    \item \textbf{deleteVm(userID: ID!, vmID: ID!): Boolean}\hfill\break
+    Operation designed for the Epfiot administration. Allows to delete a vm of any user.
+    \item \textbf{createThing(thing: ThingInput!): Thing}\hfill\break
+    With this operation you can create things
+    \item \textbf{createThingVm(thing: ThingInput!, vmID: ID!): Thing}\hfill\break
+    The previous operation has the invoncenience of creating a thing without being attached to anything. With this operation you can create the thing directly attached to one of your machines.
+    \item \textbf{attachThing(thingID: ID!, vmID: ID!): Boolean}\hfill\break
+    With this operation you can attach a thing already created to a machine.
+    \item \textbf{attachDevice(devID: ID!, vmID: ID!): Boolean}\hfill\break
+    With this operation you can attach a thing already created to a machine.
+    \item \textbf{detachDevice(devID: ID!, vmID: ID!): Boolean}\hfill\break
+    Detach a specific device from a specific machine and releases it.
+    \item \textbf{powerON(vmID: ID!): Vm}\hfill\break
+    Turn on a vm that you own, change to state running,
+    \item \textbf{powerOFF(vmID: ID!): Vm}\hfill\break
+    Power off a vm that you own, change to state poweroff.
+    \item \textbf{destroyVM(vmID: ID!): Boolean}\hfill\break
+    Try to destroy a vm that you own. For this operation to be performed, the vm must already bt switched off. Otherwise you will simply turn off the machine abruptly.
+    \item \textbf{forceDestroyVM(vmID: ID!): Boolean}\hfill\break
+    It forces the complete destruction of a vm even if it's in running state.
+    \item \textbf{forceOFF(vmID: ID!): Boolean}\hfill\break
+    It forces the sutdown of a machine.
+    
+\end{itemize}
