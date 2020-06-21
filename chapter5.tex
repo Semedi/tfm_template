@@ -192,6 +192,8 @@ We have seen the necessary types used by Epfiot API directly related to the mode
     \hline
     info & String & W & yes\\
     \hline
+    Server & String & W & yes\\
+    \hline
 \end{tabular}
 \caption{Epfiot ThingInput type table}
 \label{table1}
@@ -250,6 +252,7 @@ In the future it is planned to improve thys type to support more configurations,
 
 
 It is the same vm type seen earlier in write-only mode. It must be taken into account that to assign devices or things when instantiating a machine, these must exist previously and you must know their identifier. However, it is possible to change these values using \textb{mutations}.
+
 \newpage
 
 

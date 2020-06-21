@@ -105,14 +105,14 @@ With our appliance working, the next milestones are going to be evaluated:
 \label{makereference1.2.1}
 Under the principles previously established it has been defined a use case that allows the appliance development to have a concise scenario in order to achieve better results. The project is aimed at apartments blocks, takes into account a modern building in which every house can be considered an smart house, having a large quantity of sensors across the area.
 
-An external provider or a neighbourhood community wants to take advantage of EpFiot. That provider will be referred as client:
+An external provider or a neighbourhood community wants to take advantage of EpFiot. That provider will be referred as the {\em client} in the following:
 \begin{itemize}
-  \item A low cost board will be deployed in base building of flats/apartments as an IoT Gateway with Epfiot appliance installed.
-  \item Client will provide each apartment with sensors (temperature, humidity, camera, gas...).
-  \item Epfiot appliance will have GPU accelerators physically connected through usb ports.
-  \item Epfiot appliance will provide a service to the client allowing the spawn of customized vms that have direct access to the gpu accelerators.
-  \item Client will be able to configure sensors using epfiot.
-  \item Client will have full access and management for the vms and he will be able to allocate some resources including the usb accelerators.
+  \item A low cost board will be deployed in base building of flats/apartments as an IoT Gateway with the Epfiot appliance installed.
+  \item The client will provide each apartment with sensors (temperature, humidity, camera, gas\ldots).
+  \item The Epfiot appliance will have specific-purpose (neural network) accelerators physically connected through USB ports.
+  \item The Epfiot appliance will provide a service to the client allowing the spawn of customized VMs that have direct access to the accelerators.
+  \item The client will be able to configure sensors using epfiot.
+  \item The client will have full access and management for the VMs and he/she will be able to allocate some resources including the USB accelerators.
   \item Sensors will generate data, instead of sending this data directly to internet, a proper vm could receive the data and use a accelerator for perform inference.
   \item Results could be stored in epfiot or another application in a low latency context.
 \end{itemize}
@@ -126,7 +126,6 @@ Figure ~\ref{figure1.2} shows a representation of the case listed above.
 \label{figure1.2}
 \end{figure}
 
-\newpage
 \section{Document Organization}
 \label{makereference1.3}
 
@@ -134,7 +133,7 @@ This document contains 7 chapters described as follow:
 
 \begin{itemize}
   \item \textbf{Chapter 1, Introduction:} This chapter introduces a set of conceptual definition that is going to be mentioned along the document. This chapter also displays the complete project 's purpose through the explanation of its motivations and goals.
-  \item \textbf{Chapter 2, State of the Arts:} This section displays the current state of Edge computing from a infrastructure point of view, discussing the underlyng technologies together with the advantages and disadvantages of each option. Finishing by a brief overview of related projects.
+  \item \textbf{Chapter 2, State of the Art:} This section displays the current state of Edge computing from a infrastructure point of view, discussing the underlying technologies together with the advantages and disadvantages of each option. Finishing by a brief overview of related projects.
   \item \textbf{Chapter 3, Development Environment:} A list of the main technologies used for Epfiot will be enumerated, underlining what kind of utility is used for the project. Hardware and requirements are also discussed in this chapter.
   \item \textbf{Chapter 4: Architecture}: The chapter describes the overall architecture of Epfiot, reviewing every component and how they are connected between each other. 
   \item \textbf{Chapter 5: Features:} This part explains in detail the features of the project, end-user's functionalities are listed.   

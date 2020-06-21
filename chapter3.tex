@@ -158,7 +158,7 @@ Notice that there are several Usb accelerators that could work with Epfiot solut
 \end{figure}
 \newpage
 
-\section{Appliance}
+\section{The Appliance}
 \label{makereference3.2}
 The most important part of the Epfiot project relies in the Appliance. A virtual machine has been prepared with for the sake of serve a custom application that has been designed, developed and implemented thinking in this edge computing particular scenario.
 
@@ -301,15 +301,15 @@ This protocol provides a light and compact secure communication interface along 
 
 Some features provided by LWM2M are the following:
 \begin{itemize}
-\item \textbf{Bootstrap}: LWM2M Bootstrap Server is able to manage keying, acess control and configuration of a device and enrol it with a LWM2M Server.
-\item Device Discovery and Registration: The device (LWM2M client) permits the server (LWM2M server) know its existence.
-\item Device management and service Enablement: allows LWM2M server to perform device management, sending operations to the client.
-\item Information Reporting: Allows L2M2M to report information to the server.
+\item \textit{Bootstrapping}: LWM2M Bootstrap Server is able to manage keying, acess control and configuration of a device and enrol it with a LWM2M Server.
+\item \textit{Device Discovery and Registration}: The device (LWM2M client) permits the server (LWM2M server) know its existence.
+\item \textit{Device management and service enablement}: allows LWM2M server to perform device management, sending operations to the client.
+\item \textit{Information reporting}: Allows L2M2M to report information to the server.
 \end{itemize}
 
 The Epfiot Bootstrap service, which as its name suggest, is a Bootstrap server working with LWM2M that will handle the device bootstrapping phase, allowing those devices to register with normal LWM2M, being in this case the virtual machines.
 
-The decision of creating a different project instead of performing a direct integration in the main package was made considering that L2M2M is a young protocol and find a valid implementation turnet into a very difficult task.
+The decision of creating a different project instead of performing a direct integration in the main package was made considering that L2M2M is a young protocol and find a valid implementation turned into a very difficult task.
 \newpage
 
 Exploring possibilities for the project's implementation, it was decided to use \textbf{Wakaama}, an implementation made by Eclipse Foundation of the Open Mobile Alliance's LighWeight M2M protocol written in C, designed to be portable on POSIX compliant systems.

@@ -10,9 +10,39 @@
 % +--------------------------------------------------------------------+
 
 \chapter{Conclusions and Future work}
-\label{makereference8}
+\label{makereference7}
+\section{Conclusions}
+\label{makereference7.1}
 
-In this chapter, I want to refer to Chapter~\ref{makereference},
-so I'm going to use the slash ref command along with the
-"makereference" label which I assigned back at the beginning of
-Chapter 1.
+This work aimed to study the feasibility of having dynamic infrastructure in a cloud model adapted to today's needs, in a environment of very limited resources such as the Internet of Things and Edge computing.
+
+It was therefore decided to implement and design a lightweight, energy-saving appliance. The result is Epfiot and the following functionalities were achieved:
+\begin{itemize}
+    \item Web multi tenant application, following the basics cloud principles with a data storage model and a visual interface.
+    \item Infrastructure management with near baremetal performance and provisioning system.
+    \item Ability to use real use accelerators, attaching them dynamically to the infrastructure.
+    \item System oriented to the IoT Paradigm, using new protocols such as Lwm2m to have an easy handling of the sensors withing the environment.
+\end{itemize}
+
+With these features in mind, it can be said that the objectives have been satisfactorily achieved. It is possible to use such a platform in an Edge environment.
+
+Finally, it should be noted that a hypervisor like kvm is undoubtedly effective for this kind of project, but emulators such as qemu should be replaced in order to achieve lower overhead and lighter guests. However, it is safe to say that by using this type of technology a quite useful virtual environment can be guaranteed for the end user.
+
+\newpage
+\section{Future Work}
+\label{makereference7.2}
+
+Developing a product like Epfiot has been a very hard work due to the complexity involved. To be able to build this type of platform you have to take many factors into account, as the application is very large and many concepts such as security have to be properly considered.
+
+With this in mind, Epfiot achieved the basic objectives for which the project was designed, however some tasks can be contemplated in order to improve the project:
+
+\begin{itemize}
+    \item \textbf{Expand the graphic interface}: As the moment there is only the basic part as is was not withing the scope of the project.
+    \item \textbf{Improve security}: For the development of the project, some protocols have ben made and the should have better security using encryption.
+    \item \textbf{Better infra provisioning}: Epfiot allows you to make a basic provision for the machines, it would be useful to improve this part
+    \item \textbf{Configurable thing bootstrap}: Epfiot performs a series of static steps to configure the devices, thanks to Lwm2m this part can be easily customized by the user in the future.
+    \item \textbf{Stability \& maintenance}: Like any application this one also requires maintenance and bug hunting.
+\end{itemize}
+
+It is important to mention that Epfiot leaves open the possibility of developing more than one virtualization driver for the application. This means that it is possible to expand the project with some new technology quite simply. Therefore a good option in the future could be to implement another driver and compare performance with the current one.
+
