@@ -19,7 +19,7 @@ With these examples, a greater understanding is sought for the reader of how Epf
 
 The examples in order are as follows:
 \begin{itemize}
-    \item \textbf{Scenario}: Before moving on to the examples, the used technical sceneario will be described.
+    \item \textbf{Scenario}: Before moving on to the examples, the used technical scenario will be described.
     \item \textbf{Authentication and basic use}: This example will explain the basics of Epfiot. A user of the application logs in and creates a virtual machine.
     \item \textbf{Using vms and accelerators}: A more advanced user decides to use Epfiot and its usb accelerators. He creates two virtual machines and decides to attach an accelerator to one with the purpose of compare the performance.
     \item \textbf{Taking care of things}: This user wants to mount a complete stack using Epfiot: It will create virtual machines, assign accelerators, create things and see how the model works.
@@ -30,7 +30,7 @@ The examples in order are as follows:
 \label{makereference6.1}
 
 We're going to use a simple scenario to deal with the examples in Epfiot.
-Our main network will be a wireless wifi network, managed by a normal acess point/router with dhcp over 192.168.1.0/24. We are going to install our NUC5i5RYK in this network, to avoid problems we are going to put a static ip 192.168.1.141.
+Our main network will be a wireless wifi network, managed by a normal access point/router with dhcp over 192.168.1.0/24. We are going to install our NUC5i5RYK in this network, to avoid problems we are going to put a static ip 192.168.1.141.
 
 In our NUC it is necessary to have a Linux installed an the KVM hypervisor, In Chapter \ref{makereference3.1} are detailed the necessary packages for an Epfiot ecosystem from the host point of view. 
 A series of installation scripts are available in Epfiot main repository \cite{epfiot_install} to execute the following steps:
@@ -92,7 +92,7 @@ When the machine has been created, the user is ready to perform some basic opera
     }%
 }
 
-Although the command itself gives you a clear feedback on wheter the operation has been completed successfully or not, the user probably wants to know more information about his machine. Charlie uses the getvms command to see what is the current status:
+Although the command itself gives you a clear feedback on whether the operation has been completed successfully or not, the user probably wants to know more information about his machine. Charlie uses the getvms command to see what is the current status:
 
 \begin{figure}[h!]%t=top, b=bottom, h=here
 \centering
@@ -101,7 +101,7 @@ Although the command itself gives you a clear feedback on wheter the operation h
 \label{figure6.4}
 \end{figure}
 
-At this point, Charlie is able to use his new machine in the edge environment.  It is important to note that the machine is accesible through ssh, using as credentials those which are already provided in the creation of the machine. In this example, the user will build everything on his own and only uses Epfiot to create basic infraestructure.
+At this point, Charlie is able to use his new machine in the edge environment.  It is important to note that the machine is accessible through ssh, using as credentials those which are already provided in the creation of the machine. In this example, the user will build everything on his own and only uses Epfiot to create basic infrastructure.
 
 \newpage
 \section{Using vms and accelerators}
@@ -113,7 +113,7 @@ To do this, he's going to use two machines.
 
 
 \begin{itemize}
-    \item The first is the one used in the first example. For this machine (10.128.0.136) Charlie will attach the Google Coral accelerator to test if there is any performance imprevement when making inference.
+    \item The first is the one used in the first example. For this machine (10.128.0.136) Charlie will attach the Google Coral accelerator to test if there is any performance improvement when making inference.
     \item He will create another machine (just like the first example), this time without any device attached. The purpose is to see if there was really a deterioration in the speed compared to the previous test.
 \end{itemize}
 
@@ -248,7 +248,7 @@ With Epfiot ready, Charlie turns on his new lwm2m sensor into the network and wa
 \begin{figure}[h!]%t=top, b=bottom, h=here
 \centering
     \includegraphics[width=5.5in]{figures/bs_endpoint_log2.png}
-~\caption{Epfiot psysical sensor detected}
+~\caption{Epfiot psychical sensor detected}
 \label{figure6.15}
 \end{figure}
 
@@ -272,12 +272,12 @@ To finish his test, Charlie checks if anything has happened on the deployed serv
 
 The "prueba" device is now attached to the virtual machine previously created! All made simple with Epfiot, now from his machine, Charlie can continue to interact remotely with his new sensor.
 
-Since Epfiot has configured the "prueba" sensor, Charlie can also see which devices are active (they are in the netwokr and have been botstrapped by the application):
+Since Epfiot has configured the "prueba" sensor, Charlie can also see which devices are active (they are in the network and have been bootstrapped by the application):
 
 
 \begin{figure}[h!]%t=top, b=bottom, h=here
 \centering
     \includegraphics[width=6.5in]{figures/attached_thing.png}
-~\caption{The bootstraped thing}
+~\caption{The bootstrapped thing}
 \label{figure6.17}
 \end{figure}

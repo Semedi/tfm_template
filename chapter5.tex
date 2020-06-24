@@ -74,7 +74,7 @@ This type is implemented to represent the user entity in the Epfiot communicatio
     \hline
     Attribute & Type & Permissions & Description \\
     \hline
-    id & ID & R & The user identificator \\
+    id & ID & R & The user identifier \\
     name & String & RW & The username\\
     vms & [ID] & RW & The list of virtual machines owned by the user\\
     \hline
@@ -84,7 +84,7 @@ This type is implemented to represent the user entity in the Epfiot communicatio
 \end{center}
 \end{table}
 
-It is not commont to perform any operation with this type, the handling of the users in Epfiot is planned for future releases.
+It is not common to perform any operation with this type, the handling of the users in Epfiot is planned for future releases.
 
 \subsection{Hostdev}
 \label{makereference5.1.2}
@@ -98,7 +98,7 @@ This type respresent the physical device managed by Epfiot. Most common way this
     \hline
     Attribute & Type & Permissions & Description \\
     \hline
-    id & ID & R & The device identificator \\
+    id & ID & R & The device identifier \\
     \hline
     bus & String & R & The bus number assigned by the Linux kernel\\
     \hline
@@ -220,7 +220,7 @@ We have seen the necessary types used by Epfiot API directly related to the mode
 This type has nothing to do wit the ones mentioned above.
 This configuration will be applied when instantiating a Epfiot VM. At the moment there are only two required fields, user and password, which will be automatically created in the underlying operating system in order to allow user control.
 
-In the future it is planned to improve thys type to support more configurations, such as network or installation scripts.
+In the future it is planned to improve this type to support more configurations, such as network or installation scripts.
 \newpage
 
 \underline{Type VmInput}
@@ -260,24 +260,24 @@ It is the same vm type seen earlier in write-only mode. It must be taken into ac
 \label{makereference5.2}
 
 Queries are a type of operation used to obtain information. Queries do not let you to change the internal model of Epfiot, that means that resource creation or boot operation are outside the scope of this section.
-Queries will be used when you want to consult any kind of reading information such as active machines or devices associated with them. Keep in mind that thanks to Graphql, you can view any atttibute in an easy and simple way.
+Queries will be used when you want to consult any kind of reading information such as active machines or devices associated with them. Keep in mind that thanks to Graphql, you can view any attribute in an easy and simple way.
 
 We will describe the queries implemented in Epfiot below:
 
 
 \begin{itemize}
     \item \textbf{getUser(id: ID!): User}\hfill\break
-    This operation gives us a user object by passing it and id. Its use is intended for management purposes, however it is already implemented.
+    This operation gives an user object by passing it and id. Its use is intended for management purposes, however it is already implemented.
     \item \textbf{getUsers(): [User]}\hfill\break
     This operation returns all the users of the system, just like the previous one is intended for the administration of Epfiot.
     \item \textbf{getVm(id: ID!): Vm}\hfill\break
-    Allow to obtain information about a specific machine already created. Epfiot will only let you to view those that you own.
+    Allow to obtain information about a specific machine already created. Epfiot will only permit to view those that are owned by the user.
     \item \textbf{getDev(id: ID!): Hostdev}\hfill\break
     Allow to obtain information about a specific host device. Host devices are created in program initialization.
     \item \textbf{getThing(id: ID!): Thing}\hfill\break
-    Allow to obtaion information about a specific Thing already created. Epfiot will only let you to view those that you own.
+    Allow to obtain information about a specific Thing already created. Epfiot will only permit to view those that are owned by the user.
     \item \textbf{getVms(): [Vm]}\hfill\break
-    With this operation you can visualiza all vms you own.
+    With this operation it is possible to view all vms owned by the user.
     \item \textbf{getUsb(): [Hostdev]}\hfill\break
     In order to know which usb accelerators are plugged into the real host.
 \end{itemize}
@@ -289,30 +289,30 @@ These operations, as opposed to the queries, can change the model. This means ta
 
 \begin{itemize}
     \item \textbf{createVm(vm: VmInput!): Vm}\hfill\break
-    To create a virtual machine you have to call this operation.
+    Invoked for VM creation.
     \item \textbf{updateVm(vm: VmInput!): Vm}\hfill\break
-    With this operation you can change some aspects of your virtual machine, such as vcpu, memory or even add devices.
+    With this operation it is possible to change some aspects of a virtual machine, such as vcpu, memory or even add devices.
     \item \textbf{deleteVm(userID: ID!, vmID: ID!): Boolean}\hfill\break
     Operation designed for the Epfiot administration. Allows to delete a vm of any user.
     \item \textbf{createThing(thing: ThingInput!): Thing}\hfill\break
-    With this operation you can create things
+    This operation allows to  create things
     \item \textbf{createThingVm(thing: ThingInput!, vmID: ID!): Thing}\hfill\break
-    The previous operation has the invoncenience of creating a thing without being attached to anything. With this operation you can create the thing directly attached to one of your machines.
+    The previous operation has the invoncenience of creating a thing without being attached to anything. This operation creates the thing directly attached to one of the VMs.
     \item \textbf{attachThing(thingID: ID!, vmID: ID!): Boolean}\hfill\break
-    With this operation you can attach a thing already created to a machine.
+    Invoked for attach a thing already created to a VM.
     \item \textbf{attachDevice(devID: ID!, vmID: ID!): Boolean}\hfill\break
-    With this operation you can attach a thing already created to a machine.
+    Invoked for attach a device already created to a VM.
     \item \textbf{detachDevice(devID: ID!, vmID: ID!): Boolean}\hfill\break
     Detach a specific device from a specific machine and releases it.
     \item \textbf{powerON(vmID: ID!): Vm}\hfill\break
-    Turn on a vm that you own, change to state running,
+    Turn on a vm ownwed by the user, change to state running,
     \item \textbf{powerOFF(vmID: ID!): Vm}\hfill\break
-    Power off a vm that you own, change to state poweroff.
+    Power off a vm owned by the user, change to state poweroff.
     \item \textbf{destroyVM(vmID: ID!): Boolean}\hfill\break
-    Try to destroy a vm that you own. For this operation to be performed, the vm must already bt switched off. Otherwise you will simply turn off the machine abruptly.
+    Try to destroy a vm owned by the user. For this operation to be performed, the vm must already be switched off. Otherwise the VM simply will shut down abruptly.
     \item \textbf{forceDestroyVM(vmID: ID!): Boolean}\hfill\break
     It forces the complete destruction of a vm even if it's in running state.
     \item \textbf{forceOFF(vmID: ID!): Boolean}\hfill\break
-    It forces the sutdown of a machine.
+    It forces the shutdown of a machine.
     
 \end{itemize}

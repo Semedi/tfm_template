@@ -42,10 +42,10 @@ The infrastructure takes into account several factors.
 \begin{itemize}
     \item System software that is going to run at the top of the architecture fast and lightweight. Designed to operate directly on edge devices (computation, network, storage) and for this purpose, normally system software needs the support of multi-tenancy and isolation.
     \item Resource constrained because edge devices have smaller processors and limited power budget ~\ref{makereference1.1}. Managing these resources properly is one of the challenge that edge computing needs to confront.
-    \item Elastic scalation, depending on the services that are going to be provided.
+    \item Elastic escalation, depending on the services that are going to be provided.
     \item Network capabilities
 \end{itemize}
-Usually, in an edge computing scenario, several applications are running from differente tenants. Due to the factors previously discussed, both containers and virtual machines are valid approaches in order to satisfy the edge requirements.~\cite{CORR:chong:2018} Both enable fault and performance isolation between tenants and limits the accounts for the resource usage.
+Usually, in an edge computing scenario, several applications are running from different tenants. Due to the factors previously discussed, both containers and virtual machines are valid approaches in order to satisfy the edge requirements.~\cite{CORR:chong:2018} Both enable fault and performance isolation between tenants and limits the accounts for the resource usage.
 \newpage
 
 However there are differences, see figure \ref{figure2.2}.
@@ -92,7 +92,7 @@ In order to compare both technologies, a table has been provides, see table \ref
 \end{table}
 
 
-Security issues is one of the most important things to take into account, however containers are lightweigh, have better startup time and the resource requirements are by far better considering that we are in a edge environment and all its implications. These important factors are defined in ~\ref{makereference2.2}
+Security issues is one of the most important things to take into account, however containers are lightweight, have better startup time and the resource requirements are by far better considering that we are in a edge environment and all its implications. These important factors are defined in ~\ref{makereference2.2}
 
 However EPFIOT project takes that into account and with the new forms of virtualization there are some key features that could be improved:
 \begin{itemize}
@@ -101,7 +101,7 @@ However EPFIOT project takes that into account and with the new forms of virtual
     \item lightweight vm images
 \end{itemize}
 
-These features balance both technologies, on an edge approach it would be better to use containers if the service requires a high level of scalation on demand and the security issues are covered. Moreover in a scenario that  this hight elastic scalation is not required and some third party hardware is being used (usb acceleators), a virtualization approach would be a better fit. Taking into account that usually you need concrete hardware requirements to meet with the third party hardware provider.
+These features balance both technologies, on an edge approach it would be better to use containers if the service requires a high level of escalation on demand and the security issues are covered. Moreover in a scenario that  this high elastic escalation is not required and some third party hardware is being used (usb accelerators), a virtualization approach would be a better fit. Taking into account that usually you need concrete hardware requirements to meet with the third party hardware provider.
 
 \newpage
 
@@ -119,7 +119,7 @@ A dashboard is also available, giving administrators control while empowering th
 \begin{figure}[h]%t=top, b=bottom, h=here
 % \centering
     \includegraphics[width=6.0in]{figures/openstack.png}
-~\caption{Openstack overview, from openstack official page}
+~\caption{Openstack overview, from Openstack official page}
 \label{figure2.2}
 \end{figure}
 
@@ -156,8 +156,25 @@ Telefonica is utilizing OpenNebula to prototype a new generation of Central offi
 \end{figure}
 
 \newpage
+\subsubsection{OneEdge}
+
+An OpenNebula distribution that fits into edge computins i OneEdge. This distributed cloud management platform aggregates on-demand cloud resources across multiple edge locations to enable innovate and low-latency next-generation services. ~\cite{onedge}
+
+The main principles of OneEdge are:
+\begin{itemize}
+    \item Backward compatibility with existing VM \& container appliances
+    \item Leverage upcoming ecosystem of hyperscale and edge clouds
+    \item Easily combine centralized cloud resources with edge resources
+    \item Reuse proven cloud management capabilities
+    \item An open-source solution with a growing open ecosystem
+\end{itemize}
+
+All these features make OneEdge an interesting option when installing an open source platform int he field of edge computing.
+
+\newpage
 \subsection{AWS}
 \label{makereference2.3.3}
+
 
 Amazon Web Services is the main company speaking about cloud services nowadays. Basically Amazon is the principal election when it comes to the public cloud.
 This large sized company has a huge amount of products/services and they even have an IoT/Edge computing section.

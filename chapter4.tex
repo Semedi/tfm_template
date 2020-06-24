@@ -7,7 +7,7 @@
 \chapter{Epfiot Architecture}
 \label{makereference4}
 
-In this chapter, we'll discuss more advanced aspects of Epfiot architecture. To carry out this project, Epfiot main application has been written from scratch, for the bootstrapping service part it was done on the wakaama implementation as already seen in chapter \ref{makereference3.2.2}.
+In this chapter, we'll discuss more advanced aspects of Epfiot architecture. To carry out this project, Epfiot main application has been written from scratch, for the bootstrapping service part it was done on the Wakaama implementation as already seen in chapter \ref{makereference3.2.2}.
 
 Epfiot then consists in two separate pieces of software:
 \begin{itemize}
@@ -33,13 +33,13 @@ It provides the following features:
 \begin{itemize}
     \item Modern http API with basic authentication
     \item Sql as data model persistence
-    \item Infraestructure management with near baremetal performance with USB passthrough for gpu computing
+    \item Infrastructure management with near baremetal performance with USB passthrough for gpu computing
     \item Basic infra provisioning
     \item IoT oriented
     \item GUI
 \end{itemize}
 
-Being a program written from scratch made it neccesary to do some architectural work in order to put all the logic together. The result was the creation of some modules differentiated by the function they perform within Epfiot.
+Being a program written from scratch made it necessary to do some architectural work in order to put all the logic together. The result was the creation of some modules differentiated by the function they perform within Epfiot.
 
 \newpage
 \subsection{Driver Module}
@@ -60,16 +60,16 @@ This module serves as an interface to different functionalities that Epfiot has 
 
 \textbf{Controller}
 
-The protagoist of this module is the infraestructure Controller. This is the part of Epfiot that communicates with the host and handles the virtual machines. To perform this secure communication it uses SSH, which is compatible with Libvirt, the virtualization API with which Epfiot is able to control KVM AND QEMU from the host side.
+The protagonist of this module is the infrastructure Controller. This is the part of Epfiot that communicates with the host and handles the virtual machines. To perform this secure communication it uses SSH, which is compatible with Libvirt, the virtualization API with which Epfiot is able to control KVM AND QEMU from the host side.
 
-It is important to know that the Controller is written in a decoupled form and activated by a configuration file, whick means that it is possible to write another controller to put it to work with Epfiot!
+It is important to know that the Controller is written in a decoupled form and activated by a configuration file, which means that it is possible to write another controller to put it to work with Epfiot!
 This decision was made so that the project could evolve into newer forms of virtualization/containers in a near future without changing the rest of the functionality.
-To build the Controller, a Golang interface is used in order to allow Epfiot to work with certain infraestructure functionalities that the driver has to implement.
+To build the Controller, a Golang interface is used in order to allow Epfiot to work with certain infrastructure functionalities that the driver has to implement.
 The other Epfiot modules will work using this interface exposed by the controller.
 
 \textbf{System operations} aka \textit{Utils}
 
-With only the controller it is not possible to perform all the operations related to infraestructure. That is why the driver has a number of functions in the form of utilities to support the controller.
+With only the controller it is not possible to perform all the operations related to infrastructure. That is why the driver has a number of functions in the form of utilities to support the controller.
 
 This part then takes care of some IO operation such as creating/copying/deleting disks or getting host information.
 
@@ -88,7 +88,7 @@ The module acts as an UDP client to send certain information to the Epfiot Boots
 \newpage
 \subsection{Service Module}
 
-This section of Epfiot is responsible ofr serving an interface to the user.
+This section of Epfiot is responsible for serving an interface to the user.
 Some of the purposes this module serves are as follows:
 \begin{itemize}
     \item Authentication and security
@@ -113,16 +113,16 @@ The user being aware of this scheme, is able to send json as a console to intera
 
 \textbf{Authentication}
 
-Epfiot is a multitenant application, which means that it is capable of registering user and interacting with them. For this reason it is neccesary to authenticate with Epfiot. 
+Epfiot is a multitenant application, which means that it is capable of registering user and interacting with them. For this reason it is necessary to authenticate with Epfiot. 
 The service module handles this authentication by maintaining a secure session for the user.
 
-In the current version of Epfiot only a basic version of this module is implemented which allows tou to identify the user and maintain their session.
+In the current version of Epfiot only a basic version of this module is implemented which allows you to identify the user and maintain their session.
 
 \textbf{GUI}
 
 To finish with this module we come to the part of the visual interface. The module has a visual system using the html/css/javascript templates offered by golang.
 
-At the moment the most functional part of this visual interface is the console however, THe logic that covers the rendering code is working and it is possible to make some graphic windows in a very simple way.
+At the moment the most functional part of this visual interface is the console however, The logic that covers the rendering code is working and it is possible to make some graphic windows in a very simple way.
 
 
 
@@ -147,10 +147,10 @@ Some of the functions that this module performs are:
 
 \textbf{Resolver}
 
-Resolver is the class that handles the aplication. This code is in charge of receiving the actions dictated by the user through graphql, it is capable of of calling other modules to perform concrete actions. Inside this controller we can find many data definitions that the user is able to use in first instance (Chapter \ref{makereference5.1.1}).
+Resolver is the class that handles the application. This code is in charge of receiving the actions dictated by the user through graphql, it is capable of of calling other modules to perform concrete actions. Inside this controller we can find many data definitions that the user is able to use in first instance (Chapter \ref{makereference5.1.1}).
 
 As a design decision, Resolver save a pointer to the instance of the Driver module with which Epfiot is running.
-As mentioned, Epfiot's archicture is decoupled and although at the moment there is only one driver for KVM, it is possible to implement any other as long as you keep the interface.
+As mentioned, Epfiot's architecture is decoupled and although at the moment there is only one driver for KVM, it is possible to implement any other as long as you keep the interface.
 
 
 When the user makes an API call such as createVm, Epfiot uses the service module to handle any http session, right after that Resolve dictate what action to take.
@@ -175,9 +175,9 @@ We refer to the model as the series of defined objects and the relationships the
 These objects that we can find inside Epfiot are the following:
 \begin{itemize}
     \item \textbf{User}: The normal user entity that uses the application to know who own the environment.
-    \item \textbf{Vm}: Representing the infraestructure, keeping information about the details of the machine and the status.
+    \item \textbf{Vm}: Representing the infrastructure, keeping information about the details of the machine and the status.
     \item \textbf{Devices}: Each of these objects represents the usb devices that has attached, storing information such as the bus number.
-    \item \textbf{Things}: They represent the various IoT sensors you deploy and their relationship to the infraestructure.
+    \item \textbf{Things}: They represent the various IoT sensors you deploy and their relationship to the infrastructure.
     \item Config: The only purpose of this object is to save instance initialization options that could be reused.
 \end{itemize}
 \newpage
@@ -207,11 +207,11 @@ This part of Epfiot as its name suggest is based on the bootstrap service provid
 \begin{figure}[h!]%t=top, b=bottom, h=here
 \centering
     \includegraphics[width=5.0in]{figures/bootstrap.png}
-~\caption{Epfiot_bootstrap Overview}
+~\caption{Epfiot\_bootstrap Overview}
 \label{figure4.7}
 \end{figure}
 
-This process is listens to UDP packets and stores in memory the bootstrapping configuratuin for differents sensors.
+This process is listens to UDP packets and stores in memory the bootstrapping configuration for different sensors.
 \newpage
 
 Some of the actions performed by Epfiot bootstrap are the next:

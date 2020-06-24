@@ -13,11 +13,11 @@
   \end{center}
 \vspace{1cm}
 
-This work consist on the implementation of EPFIOT (Edge Provisioning For Internet of Things). An appliance developed to look at Infrastructure as a service based on the edge. It is specifically prepared for interacting with IoT devices using special hardware accelerators designed for AI.
+This work consist on the implementation of {\sc Epfiot} ({\em Edge Provisioning For Internet of Things}). An appliance developed to look at Infrastructure as a service based on the edge. It is specifically designed and prepared to interact with IoT devices using special hardware accelerators for specific purposes in the field of machine learning.
 
-Cloud computing is the only choice nowadays, certain doubts arise about if it would be mandatory to keep all device data sended directly to cloud assuming the latency costs. Epfiot relies in using low specs hardware trying to bring to your local area network a similar cloud model, simplifying the way of providing virtual machines through the use of real hardware accelerators for your devices. This will allow the device to perform inference over the collected data quickly.
+Cloud computing is the only choice nowadays, certain doubts arise about if it is strictly necessary to send all the data collected by the devices directly to Internet assuming the latency costs. Epfiot aims, with a contained use of resources, to offer a complete infrastructure stack in order to perform an integral processing of data obtained from devices in the local network, simplifying the way of provide virtual machines at the edge, through the use of specific accelerators for machine learning that perform inference on the data quickly, reducing the latency associated with the transfer to remote datacenters.
 
-The application has a graphql interface building an entire IoT ecosystem, using infrastructure on the edge thanks to Linux virtualization (kvm) and emerging technologies, like for example LwM2M to provide device bootstrapping.
+The application has a \texttt{GraphQL} interface building an entire IoT ecosystem, using infrastructure on the edge thanks to Linux virtualization ({\tt kvm}) and emerging technologies, like for example LwM2M to provide device bootstrapping.
 
 \vspace{1cm}
 
